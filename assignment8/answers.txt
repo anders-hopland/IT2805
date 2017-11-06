@@ -1,0 +1,15 @@
+1. To render in a 3D context, you must use webgl or webgl2. However,
+this is only available on browsers that support this. 
+
+2. 
+var canvas = document.getElementById("my-canvas");
+var context = canvas.getContext("2d");
+context.beginPath();
+context.arc(200, 200, 50, 2 * Math.PI, false);
+context.fillStyle = "blue";
+context.fill();
+
+3. var arr = myArr.filter(function(elem) {
+    return elem;
+});
+

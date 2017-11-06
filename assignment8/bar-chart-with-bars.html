@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tax forms: Bar chart with lines</title>
+    <meta charset="UTF-8">
+    <script src="taxForms.js"></script>
+  </head>
+  <body>
+
+    <canvas id="chart" width="700" height="550"></canvas>
+
+    <script>
+      const canvas = document.getElementById('chart');
+      const context = canvas.getContext('2d');
+
+      /* Draw a line from (fromX, fromY) to (toX, toY) */
+      function drawLine(fromX, fromY, toX, toY) {
+        context.beginPath();
+        context.moveTo(toX, toY);
+        context.lineTo(fromX, fromY);
+        context.stroke();
+      }
+
+      /* Draw a text (string) on (x, y) */
+      function drawText(text, x, y) {
+        context.fillStyle = 'black';
+        context.fillText(text, x, y);
+      }
+
+      /* Draw a text and with a line to its right */
+      function drawLineWithText(text, fromX, fromY, toX, toY) {
+        drawText(text, fromX - 50, fromY + 10);
+        drawLine(fromX, fromY, toX, toY);
+      }
+
+      /* Insert your code here. */
+      for (var i = 1; i <= 10; i++) {
+        drawLineWithText(i * 100000, 150, 550 - 50 * i, 600, 550 - 50 * i);
+      }
+
+      function drawRectangleWithColor(color, fromX, fromY, width,
+          height) {
+          context.fillStyle = color;
+          context.fillRect(fromX, fromY, width, height);
+      }
+
+      function drawRectangleWithText(text, color, fromX, fromY, width,
+          height) {
+        drawRectangleWithColor(color, fromX, fromY, width, height);
+        drawText(text, fromX + width + 10, fromY + 10);
+        console.log("drawing");
+      }
+
+      drawRectangleWithText("Income", "red", 620, 50, 35, 20);
+      drawRectangleWithText("Wealth", "blue", 620, 80, 35, 20);
+      
+      for (var i = 0; i < taxForms.length; i++) {
+        drawRectangleWithColor("red", 180 + i * 140, 550 -
+            taxForms[i].income / 2000,
+            45, 550);
+         drawRectangleWithColor("blue", 235 + i * 140, 550 -
+            taxForms[i].wealth / 2000,
+            45, 550);
+      }
+
+    </script>
+  </body>
+</html>
