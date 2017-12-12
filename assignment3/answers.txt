@@ -1,0 +1,7 @@
+1. What is the difference between position: absolute and position: fixed?
+With absolute positioning, you place an element excactly where you want it to be on the iste.
+With fixed positioning, you place an element on an excact point relative to the browser window, meaning
+it will be in a fixed position if you are scrolling.
+
+2. With CSS3, how do we access the third element within another element?
+Using nth child pseudo selector. E.g. in the list from last excercise ul > ul > li:nth-child(3)

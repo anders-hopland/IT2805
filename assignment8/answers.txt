@@ -10,6 +10,8 @@ context.fillStyle = "blue";
 context.fill();
 
 3. var arr = myArr.filter(function(elem) {
-    return elem;
+    if (elem.startsWith("N") {
+       countriesStartingWithN.push(elem);
+    }
 });
 
